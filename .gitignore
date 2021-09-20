@@ -9,6 +9,10 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+/[Aa]ssets/Art/
+/[Aa]ssets/External Assets/
+/[Aa]ssets/Older Stuff/
+/[Aa]ssets/TilePallette/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
