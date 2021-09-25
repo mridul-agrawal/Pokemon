@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed;
     public LayerMask SolidObjectsLayer;
+    public LayerMask LongGrassLayer;
 
     private bool isMoving = false;
     private Vector2 input;
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
             targetPosition.x += input.x;
             targetPosition.y += input.y;
 
-            if(IsWalkable(targetPosition)) StartCoroutine(Move(targetPosition));
+            if(IsWalkable(targetPosition) && targetPosition!=transform.position) StartCoroutine(Move(targetPosition));
         }
         playerAnimator.SetBool("isMoving", isMoving);
     }
@@ -48,11 +49,27 @@ public class PlayerController : MonoBehaviour
         }
         transform.position = targetPos;
         isMoving = false;
+        CheckForEncounters();
     }
 
     private bool IsWalkable(Vector2 targetPos)
     {
-        return Physics2D.OverlapCircle(targetPos, 0.2f, SolidObjectsLayer) != null ? false : true;
+        if(Physics2D.OverlapCircle(targetPos, 0.2f, SolidObjectsLayer) != null)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    private void CheckForEncounters()
+    {
+        if(Physics2D.OverlapCircle(transform.position, 0.2f, LongGrassLayer) != null)
+        {
+            if(Random.Range(1,101) <= 10)
+            {
+                Debug.Log("Encountered a wild Pokemon");
+            }
+        }
     }
 
 }
