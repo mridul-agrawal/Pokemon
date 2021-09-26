@@ -6,11 +6,26 @@ public class Pokemon
 {
     PokemonBase _base;
     int level;
+    public int HP;
+
+    public List<Move> Moves { get; set; }
 
     Pokemon(PokemonBase pbase, int plevel)
     {
         _base = pbase;
         level = plevel;
+        HP = _base.MaxHP;
+
+        Moves = new List<Move>();
+        foreach(var move in _base.LearnableMoves)
+        {
+            if(move.Level <= level)
+            {
+                Moves.Add(new Move(move.Base));
+            }
+            if (Moves.Count >= 4)
+                break;
+        }
     }
 
     public int Attack
