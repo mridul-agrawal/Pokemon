@@ -6,6 +6,8 @@ public class BattleSystem : MonoBehaviour
 {
     [SerializeField] BattleUnit playerUnit;
     [SerializeField] BattleHUD playerHud;
+    [SerializeField] BattleUnit enemyUnit;
+    [SerializeField] BattleHUD enemyHUD;
 
     private void Start()
     {
@@ -15,6 +17,8 @@ public class BattleSystem : MonoBehaviour
     public void SetupBattle()
     {
         playerUnit.Setup();
+        enemyUnit.Setup();
         playerHud.SetData(playerUnit.Pokemon);
+        enemyHUD.SetData(enemyUnit.Pokemon);
     }
 }
