@@ -10,7 +10,7 @@ public class Pokemon
 
     public List<Move> Moves { get; set; }
 
-    Pokemon(PokemonBase pbase, int plevel)
+    public Pokemon(PokemonBase pbase, int plevel)
     {
         Base = pbase;
         Level = plevel;
