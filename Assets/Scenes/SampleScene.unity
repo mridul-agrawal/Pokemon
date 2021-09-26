@@ -334,6 +334,7 @@ GameObject:
   - component: {fileID: 165075471}
   - component: {fileID: 165075473}
   - component: {fileID: 165075472}
+  - component: {fileID: 165075474}
   m_Layer: 0
   m_Name: PlayerHUD
   m_TagString: Untagged
@@ -360,7 +361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.615, y: 0.27}
   m_AnchorMax: {x: 0.96500003, y: 0.43500003}
-  m_AnchoredPosition: {x: 0.004982, y: 0.5}
+  m_AnchoredPosition: {x: 0.0049743652, y: 0.5}
   m_SizeDelta: {x: 0.01004, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &165075472
@@ -401,6 +402,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165075470}
   m_CullTransparentMesh: 1
+--- !u!114 &165075474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165075470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f362e881dcda60347ad13d0f75a131bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameText: {fileID: 1521663257}
+  LevelText: {fileID: 1922655542}
+  hpBar: {fileID: 1441111874}
 --- !u!1 &179464905
 GameObject:
   m_ObjectHideFlags: 0
@@ -7288,6 +7304,7 @@ GameObject:
   - component: {fileID: 1441111871}
   - component: {fileID: 1441111873}
   - component: {fileID: 1441111872}
+  - component: {fileID: 1441111874}
   m_Layer: 0
   m_Name: HPBar
   m_TagString: Untagged
@@ -7355,6 +7372,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441111870}
   m_CullTransparentMesh: 1
+--- !u!114 &1441111874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441111870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3780d4f091643f846b80e06b4cb7434d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 1590955183}
 --- !u!1 &1521663255
 GameObject:
   m_ObjectHideFlags: 0
@@ -7581,7 +7611,7 @@ RectTransform:
   m_GameObject: {fileID: 1590955183}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.54, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1441111871}
   m_RootOrder: 1
