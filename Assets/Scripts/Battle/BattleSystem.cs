@@ -8,6 +8,7 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] BattleHUD playerHud;
     [SerializeField] BattleUnit enemyUnit;
     [SerializeField] BattleHUD enemyHUD;
+    [SerializeField] BattleDialogBox dialogBox;
 
     private void Start()
     {
@@ -20,5 +21,7 @@ public class BattleSystem : MonoBehaviour
         enemyUnit.Setup();
         playerHud.SetData(playerUnit.Pokemon);
         enemyHUD.SetData(enemyUnit.Pokemon);
+
+        dialogBox.SetDialog("A wild " + enemyUnit.Pokemon.Base.Name + " appeared");
     }
 }
