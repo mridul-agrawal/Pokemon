@@ -6,9 +6,6 @@ using UnityEngine.UI;
 public class BattleDialogBox : MonoBehaviour
 {
 
-    public enum BattleState { Start, PlayerAction, PlayerMove, EnemyMove, Busy};
-
-
     [SerializeField] int lettersPerSecond;
 
     [SerializeField] Text dialogText;
@@ -22,7 +19,8 @@ public class BattleDialogBox : MonoBehaviour
     [SerializeField] Text ppText;
     [SerializeField] Text typeText;
 
-    BattleState state;
+    [SerializeField] Color highlightedColor;
+
 
     public void SetDialog(string dialog)
     {
@@ -54,4 +52,16 @@ public class BattleDialogBox : MonoBehaviour
         moveSelector.SetActive(enable);
         moveDetails.SetActive(enable);
     }
+
+    public void UpdateActionSelection(int currentAction)
+    {
+        for(int i=0; i<actionTexts.Count; i++)
+        {
+            if (currentAction == i)
+                actionTexts[i].color = highlightedColor;
+            else
+                actionTexts[i].color = Color.black;
+        }
+    }
+
 }
