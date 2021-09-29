@@ -5,8 +5,24 @@ using UnityEngine.UI;
 
 public class BattleDialogBox : MonoBehaviour
 {
-    [SerializeField] Text dialogText;
+
+    public enum BattleState { Start, PlayerAction, PlayerMove, EnemyMove, Busy};
+
+
     [SerializeField] int lettersPerSecond;
+
+    [SerializeField] Text dialogText;
+    [SerializeField] GameObject actionSelector;
+    [SerializeField] GameObject moveSelector;
+    [SerializeField] GameObject moveDetails;
+
+    [SerializeField] List<Text> actionTexts;
+    [SerializeField] List<Text> moveTexts;
+
+    [SerializeField] Text ppText;
+    [SerializeField] Text typeText;
+
+    BattleState state;
 
     public void SetDialog(string dialog)
     {
@@ -21,5 +37,21 @@ public class BattleDialogBox : MonoBehaviour
             dialogText.text += letter;
             yield return new WaitForSeconds(1f / lettersPerSecond);
         }
+    }
+
+    public void EnableDialogText(bool enable)
+    {
+        dialogText.enabled = enable;
+    }
+
+    public void EnableActionSelector(bool enable)
+    {
+        actionSelector.SetActive(enable);
+    }
+
+    public void EnableMoveSelector(bool enable)
+    {
+        moveSelector.SetActive(enable);
+        moveDetails.SetActive(enable);
     }
 }
