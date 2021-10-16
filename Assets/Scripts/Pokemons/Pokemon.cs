@@ -58,4 +58,19 @@ public class Pokemon
         get { return Mathf.FloorToInt((Base.MaxHP * Level) / 100f) + 10; }
     }
 
+    public bool TakeDamage(Move move, Pokemon attacker)
+    {
+        float modifier = Random.Range(0.85f, 1);
+        float a = (2 * attacker.Level * 10) / 250;
+        float b = a * move.Base.Power * ((float)attacker.Attack / Defense) + 2;
+        int damage = Mathf.FloorToInt(b * modifier);
+        HP -= damage;
+        if(HP <= 0)
+        {
+            HP = 0;
+            return true;
+        }
+        return false;
+    }
+
 }

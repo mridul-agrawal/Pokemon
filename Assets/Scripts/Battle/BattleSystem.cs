@@ -60,6 +60,19 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
+        bool isFainted = enemyUnit.Pokemon.TakeDamage(move, playerUnit.Pokemon);
+
+        if(isFainted)
+        {
+            dialogBox.TypeDialog($"{enemyUnit.Pokemon.Base.Name} fainted!");
+        } else
+        {
+            StartCoroutine(EnemyMove());
+        }
+    }
+
+    IEnumerator EnemyMove()
+    {
 
     }
 
