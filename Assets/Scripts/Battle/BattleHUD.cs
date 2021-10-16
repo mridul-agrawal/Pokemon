@@ -9,10 +9,18 @@ public class BattleHUD : MonoBehaviour
     [SerializeField] Text LevelText;
     [SerializeField] HPBar hpBar;
 
+    Pokemon _pokemon;
+
     public void SetData(Pokemon pokemon)
     {
+        _pokemon = pokemon;
         NameText.text = pokemon.Base.Name;
         LevelText.text = "Lvl " + pokemon.Level;
         hpBar.SetHP((float) pokemon.HP / pokemon.MaxHP);
+    }
+
+    public IEnumerator UpdateHP()
+    {
+        yield return hpBar.SetHPSmooth((float)_pokemon.HP / _pokemon.MaxHP);
     }
 }
