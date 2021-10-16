@@ -55,12 +55,14 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PerformPlayerMove()
     {
+        state = BattleState.Busy;
         var move = playerUnit.Pokemon.Moves[currentMove];
         yield return dialogBox.TypeDialog($"{playerUnit.Pokemon.Base.Name} used {move.Base.Name}");
 
         yield return new WaitForSeconds(1f);
 
         bool isFainted = enemyUnit.Pokemon.TakeDamage(move, playerUnit.Pokemon);
+        enemyHUD.UpdateHP();
 
         if(isFainted)
         {
@@ -73,6 +75,23 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyMove()
     {
+        state = BattleState.EnemyMove;
+        var move = enemyUnit.Pokemon.GetRandomMove();
+        yield return dialogBox.TypeDialog($"{enemyUnit.Pokemon.Base.Name} used {move.Base.Name}");
+
+        yield return new WaitForSeconds(1f);
+
+        bool isFainted = playerUnit.Pokemon.TakeDamage(move, enemyUnit.Pokemon);
+        playerHud.UpdateHP();
+
+        if (isFainted)
+        {
+            dialogBox.TypeDialog($"{playerUnit.Pokemon.Base.Name} fainted!");
+        }
+        else
+        {
+            PlayerAction();
+        }
 
     }
 
