@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,8 +17,9 @@ public class BattleSystem : MonoBehaviour
     int currentAction = 0;
     int currentMove = 0;
 
+    public event Action<bool> OnBattleOver;
 
-    private void Start()
+    public void StartBattle()
     {
         StartCoroutine(SetupBattle());
     }
@@ -70,6 +72,9 @@ public class BattleSystem : MonoBehaviour
         {
             yield return dialogBox.TypeDialog($"{enemyUnit.Pokemon.Base.Name} fainted!");
             enemyUnit.PlayFaintAnimation();
+
+            yield return new WaitForSeconds(2f);
+            OnBattleOver(true);
         } else
         {
             StartCoroutine(EnemyMove());
@@ -94,6 +99,9 @@ public class BattleSystem : MonoBehaviour
         {
             yield return dialogBox.TypeDialog($"{playerUnit.Pokemon.Base.Name} fainted!");
             playerUnit.PlayFaintAnimation();
+
+            yield return new WaitForSeconds(2f);
+            OnBattleOver(false);
         }
         else
         {
@@ -115,7 +123,7 @@ public class BattleSystem : MonoBehaviour
 
 
 
-    private void Update()
+    public void HandleUpdate()
     {
         if(state == BattleState.PlayerAction)
         {
