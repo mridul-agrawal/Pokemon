@@ -60,7 +60,8 @@ public class Pokemon
 
     public bool TakeDamage(Move move, Pokemon attacker)
     {
-        float modifiers = Random.Range(0.85f, 1f);
+        float type = TypeChart.GetEffectiveness(move.Base.MoveType, this.Base.Type1) * TypeChart.GetEffectiveness(move.Base.MoveType, this.Base.Type2);
+        float modifiers = Random.Range(0.85f, 1f) * type;
         float a = (2 * attacker.Level + 10) / 250f;
         float d = a * move.Base.Power * ((float)attacker.Attack / Defense) + 2;
         int damage = Mathf.FloorToInt(d * modifiers);
