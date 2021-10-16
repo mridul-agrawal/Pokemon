@@ -62,11 +62,11 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         bool isFainted = enemyUnit.Pokemon.TakeDamage(move, playerUnit.Pokemon);
-        enemyHUD.UpdateHP();
+        yield return enemyHUD.UpdateHP();
 
         if(isFainted)
         {
-            dialogBox.TypeDialog($"{enemyUnit.Pokemon.Base.Name} fainted!");
+            yield return dialogBox.TypeDialog($"{enemyUnit.Pokemon.Base.Name} fainted!");
         } else
         {
             StartCoroutine(EnemyMove());
@@ -82,11 +82,11 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         bool isFainted = playerUnit.Pokemon.TakeDamage(move, enemyUnit.Pokemon);
-        playerHud.UpdateHP();
+        yield return playerHud.UpdateHP();
 
         if (isFainted)
         {
-            dialogBox.TypeDialog($"{playerUnit.Pokemon.Base.Name} fainted!");
+            yield return dialogBox.TypeDialog($"{playerUnit.Pokemon.Base.Name} fainted!");
         }
         else
         {
