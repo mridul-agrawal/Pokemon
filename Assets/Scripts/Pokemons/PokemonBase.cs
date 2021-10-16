@@ -48,12 +48,12 @@ public class PokemonBase : ScriptableObject
 
     public PokemonType Type1
     {
-        get { return Type1; }
+        get { return type1; }
     }
 
     public PokemonType Type2
     {
-        get { return Type2; }
+        get { return type2; }
     }
 
     public int MaxHP

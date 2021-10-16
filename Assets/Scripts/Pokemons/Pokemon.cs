@@ -82,7 +82,7 @@ public class Pokemon
         if(HP <= 0)
         {
             HP = 0;
-            damageDetails.Fainted = false;
+            damageDetails.Fainted = true;
         } 
         
         return damageDetails;
