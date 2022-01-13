@@ -5,6 +5,4 @@ As a developer I have implemented various design programming patterns in my code
 <br>
 You can have a look at the current stage of the project here below:
 <br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/iaCEjuJqn4Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<br>
 https://youtu.be/iaCEjuJqn4Y
