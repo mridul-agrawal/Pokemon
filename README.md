@@ -4,6 +4,12 @@ I have tried to recreate the original game design and feel in my project as a bi
 <hr>
 
 # ScreenShots
+<p align="center">
+<img src="Assets/Attachments/SS1.png"> &nbsp&nbsp&nbsp&nbsp
+</p>
+<p align="center">
+<img src="Assets/Attachments/SS2.png"> &nbsp&nbsp&nbsp&nbsp
+</p>
 
 ### Design Patterns used for the development
 * **Observer Pattern**
