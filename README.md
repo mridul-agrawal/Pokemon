@@ -10,8 +10,8 @@ I have tried to recreate the original game design and feel in my project as a bi
 * **State Machine**
 <hr>
 
-## Demo Link
-### You can have a look at the current stage of the project here below:
+### Demo Link
+You can have a look at the current stage of the project here below:
 https://youtu.be/iaCEjuJqn4Y
 
 # Class Diagram
