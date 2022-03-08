@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class is used to create Scriptable Objects for various Moves and specify data for them.
+/// </summary>
 [CreateAssetMenu(fileName = "Move", menuName = "Pokemon/Create New Move")]
 public class MoveBase : ScriptableObject
 {
@@ -16,14 +19,9 @@ public class MoveBase : ScriptableObject
     [SerializeField] int pp;
 
     public string Name { get { return _name; } }
-
     public string Description { get { return description; } }
-
     public PokemonType MoveType { get { return moveType; } }
-
     public int Power { get { return power; } }
-
     public int Accuracy { get { return accuracy; } }
-
     public int PP { get { return pp; } }
 }

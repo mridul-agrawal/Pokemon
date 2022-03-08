@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class is used to create Scriptable Objects for various Pokemons and specify data for them.
+/// </summary>
 [CreateAssetMenu(fileName ="Pokemon", menuName = "Pokemon/Create New Pokemon")]
 public class PokemonBase : ScriptableObject
 {
@@ -55,6 +58,9 @@ public class PokemonBase : ScriptableObject
 }
 
 
+/// <summary>
+/// This class defines a move and the level at which it can be learned.
+/// </summary>
 [System.Serializable]
 public class LearnableMove
 {
@@ -67,6 +73,9 @@ public class LearnableMove
 }
 
 
+/// <summary>
+/// An Enum for various Pokemon Types Possible.
+/// </summary>
 public enum PokemonType
 {
     None,
@@ -90,6 +99,10 @@ public enum PokemonType
     Fairy
 }
 
+
+/// <summary>
+/// This Class is used to measure the effectiveness based on Pokemon Types and Move Types using the effectiveness Matrix.
+/// </summary>
 public class TypeChart
 {
     static float[][] chart =

@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
+/// <summary>
+/// This class is responsible to handle the Data Setup, UI & Animations for a battle unit (Pokemon) during the battle. 
+/// </summary>
 public class BattleUnit : MonoBehaviour
 {
     [SerializeField] PokemonBase _base;
@@ -23,6 +26,7 @@ public class BattleUnit : MonoBehaviour
         originalColor = image.color;
     }
 
+    // This method Sets up pokemon attributes & UI for the battle.
     public void Setup()
     {
         Pokemon = new Pokemon(_base, level);
@@ -34,6 +38,7 @@ public class BattleUnit : MonoBehaviour
         image.color = originalColor;
     }
 
+    // performs player enter animation.
     public void PlayerEnterAnimation()
     {
         if (isPlayerUnit)
@@ -43,6 +48,7 @@ public class BattleUnit : MonoBehaviour
         image.transform.DOLocalMoveX(originalPos.x, 1f);
     }
 
+    // performs player attack animation.
     public void PlayAttackAnimation()
     {
         Sequence sequence = DOTween.Sequence();
@@ -53,6 +59,7 @@ public class BattleUnit : MonoBehaviour
         sequence.Append(image.transform.DOLocalMoveX(originalPos.x, 0.25f));
     }
 
+    // performs player hit animation.
     public void PlayHitAnimation()
     {
         var sequence = DOTween.Sequence();
@@ -60,6 +67,7 @@ public class BattleUnit : MonoBehaviour
         sequence.Append(image.DOColor(originalColor, 0.1f));
     }
 
+    // performs player faint animation.
     public void PlayFaintAnimation()
     {
         var sequence = DOTween.Sequence();

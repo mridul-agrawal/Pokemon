@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class is responsible for loading data & performing functionality related to a Pokemon.
+/// </summary>
 public class Pokemon
 {
     public PokemonBase Base { get; set; }
@@ -28,36 +31,15 @@ public class Pokemon
         }
     }
 
-    public int Attack
-    {
-        get { return Mathf.FloorToInt((Base.Attack * Level) / 100f) + 5; }
-    }
+    public int Attack { get { return Mathf.FloorToInt((Base.Attack * Level) / 100f) + 5; } }
+    public int Defense { get { return Mathf.FloorToInt((Base.Defense * Level) / 100f) + 5; } }
+    public int SPAttack { get { return Mathf.FloorToInt((Base.SPAttack * Level) / 100f) + 5; } }
+    public int SPDefense { get { return Mathf.FloorToInt((Base.SPDefense * Level) / 100f) + 5; } }
+    public int Speed { get { return Mathf.FloorToInt((Base.Speed * Level) / 100f) + 5; } }
+    public int MaxHP { get { return Mathf.FloorToInt((Base.MaxHP * Level) / 100f) + 10; } }
 
-    public int Defense
-    {
-        get { return Mathf.FloorToInt((Base.Defense * Level) / 100f) + 5; }
-    }
 
-    public int SPAttack
-    {
-        get { return Mathf.FloorToInt((Base.SPAttack * Level) / 100f) + 5; }
-    }
-
-    public int SPDefense
-    {
-        get { return Mathf.FloorToInt((Base.SPDefense * Level) / 100f) + 5; }
-    }
-
-    public int Speed
-    {
-        get { return Mathf.FloorToInt((Base.Speed * Level) / 100f) + 5; }
-    }
-
-    public int MaxHP
-    {
-        get { return Mathf.FloorToInt((Base.MaxHP * Level) / 100f) + 10; }
-    }
-
+    // This Method calculates the damage to be inflicted by taking multiple parameters in account.
     public DamageDetails TakeDamage(Move move, Pokemon attacker)
     {
         float critical = 1f;
@@ -90,6 +72,7 @@ public class Pokemon
         
     }
 
+    // Returns a random move from the list to perform
     public Move GetRandomMove()
     {
         int r = Random.Range(0,Moves.Count);
@@ -98,6 +81,9 @@ public class Pokemon
 
 }
 
+/// <summary>
+/// Instance of this class holds details for the damage inflicted.
+/// </summary>
 public class DamageDetails
 {
     public bool Fainted { get; set; }
