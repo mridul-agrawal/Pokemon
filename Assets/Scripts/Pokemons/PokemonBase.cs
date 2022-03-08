@@ -26,70 +26,31 @@ public class PokemonBase : ScriptableObject
 
     [SerializeField] List<LearnableMove> learnableMoves;
 
-    public string Name
-    {
-        get { return _name; }
-    }
+    public string Name { get { return _name; } }
 
-    public string Description
-    {
-        get { return description; }
-    }
+    public string Description { get { return description; } }
 
-    public Sprite FrontSprite
-    {
-        get { return frontSprite; }
-    }
+    public Sprite FrontSprite { get { return frontSprite; } }
 
-    public Sprite BackSprite
-    {
-        get { return backSprite; }
-    }
+    public Sprite BackSprite { get { return backSprite; } }
 
-    public PokemonType Type1
-    {
-        get { return type1; }
-    }
+    public PokemonType Type1 { get { return type1; } }
 
-    public PokemonType Type2
-    {
-        get { return type2; }
-    }
+    public PokemonType Type2 { get { return type2; } }
 
-    public int MaxHP
-    {
-        get { return maxHP; }
-    }
+    public int MaxHP { get { return maxHP; } }
 
-    public int Attack
-    {
-        get { return attack; }
-    }
+    public int Attack { get { return attack; } }
 
-    public int Defense
-    {
-        get { return defense; }
-    }
+    public int Defense { get { return defense; } }
 
-    public int SPAttack
-    {
-        get { return spattack; }
-    }
+    public int SPAttack { get { return spattack; } }
 
-    public int SPDefense
-    {
-        get { return spdefense; }
-    }
+    public int SPDefense { get { return spdefense; } }
 
-    public int Speed
-    {
-        get { return speed; }
-    }
+    public int Speed { get { return speed; } }
 
-    public List<LearnableMove> LearnableMoves
-    {
-        get { return learnableMoves; }
-    }
+    public List<LearnableMove> LearnableMoves { get { return learnableMoves; } }
 
 }
 
@@ -100,15 +61,9 @@ public class LearnableMove
     [SerializeField] MoveBase moveBase;
     [SerializeField] int level;
 
-    public MoveBase Base
-    {
-        get { return moveBase; }
-    }
+    public MoveBase Base { get { return moveBase; } }
 
-    public int Level
-    {
-        get { return level; }
-    }
+    public int Level { get { return level; } }
 }
 
 

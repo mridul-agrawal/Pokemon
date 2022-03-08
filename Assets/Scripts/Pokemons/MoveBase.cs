@@ -15,33 +15,15 @@ public class MoveBase : ScriptableObject
     [SerializeField] int accuracy;
     [SerializeField] int pp;
 
-    public string Name
-    {
-        get { return _name; }
-    }
+    public string Name { get { return _name; } }
 
-    public string Description
-    {
-        get { return description; }
-    }
+    public string Description { get { return description; } }
 
-    public PokemonType MoveType
-    {
-        get { return moveType; }
-    }
+    public PokemonType MoveType { get { return moveType; } }
 
-    public int Power
-    {
-        get { return power; }
-    }
+    public int Power { get { return power; } }
 
-    public int Accuracy
-    {
-        get { return accuracy; }
-    }
+    public int Accuracy { get { return accuracy; } }
 
-    public int PP
-    {
-        get { return pp; }
-    }
+    public int PP { get { return pp; } }
 }

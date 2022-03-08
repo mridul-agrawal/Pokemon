@@ -65,6 +65,7 @@ public class Pokemon
         {
             critical = 2f;
         }
+
         float type = TypeChart.GetEffectiveness(move.Base.MoveType, this.Base.Type1) * TypeChart.GetEffectiveness(move.Base.MoveType, this.Base.Type2);
 
         var damageDetails = new DamageDetails()

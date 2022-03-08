@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
     {
         if(Physics2D.OverlapCircle(transform.position, 0.2f, LongGrassLayer) != null)
         {
-            if(UnityEngine.Random.Range(1,101) <= 10)
+            if(UnityEngine.Random.Range(1,101) <= 6)
             {
                 playerAnimator.SetBool("isMoving", false);
                 OnEncounter();
