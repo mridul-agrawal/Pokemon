@@ -13,7 +13,7 @@
 /[Aa]ssets/External Assets/
 /[Aa]ssets/Older Stuff/
 /[Aa]ssets/TilePallette/
-/[Pp]lugins/
+/[Aa]ssets/Plugins/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
