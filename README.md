@@ -11,7 +11,11 @@ I have tried to recreate the original game design and feel in my project as a bi
 * **State Machine**
 <hr>
 
-
+# Class Diagram
+<p align="center">
+<img src="Assets/Attachments/Pokemon.png"> &nbsp&nbsp&nbsp&nbsp
+</p>
+<hr>
 
 
 
