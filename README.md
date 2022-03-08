@@ -4,7 +4,6 @@ I have tried to recreate the original game design and feel in my project as a bi
 <hr>
 
 # ScreenShots
-<hr>
 
 ### Design Patterns used for the development
 * **Observer Pattern**
