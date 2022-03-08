@@ -3,27 +3,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// This Class is responsible to execute battle logic based on the current Battle State.
+/// </summary>
 public class BattleSystem : MonoBehaviour
 {
+    // Enum for possuble battle states.
     public enum BattleState { Start, PlayerAction, PlayerMove, EnemyMove, Busy };
 
+    // Dependencies:
     [SerializeField] BattleUnit playerUnit;
     [SerializeField] BattleHUD playerHud;
     [SerializeField] BattleUnit enemyUnit;
     [SerializeField] BattleHUD enemyHUD;
     [SerializeField] BattleDialogBox dialogBox;
 
-    BattleState state;
+    // Variables:
+    BattleState currentBattleState;
     int currentAction = 0;
     int currentMove = 0;
 
+    // Events:
     public event Action<bool> OnBattleOver;
+
 
     public void StartBattle()
     {
         StartCoroutine(SetupBattle());
     }
 
+    // Method to set up Pokemon and UI Data for the battle.
     public IEnumerator SetupBattle()
     {
         playerUnit.Setup();
@@ -38,25 +48,27 @@ public class BattleSystem : MonoBehaviour
         PlayerAction();
     }
 
-
+    // Opens Menu for player action selection.
     public void PlayerAction()
     {
-        state = BattleState.PlayerAction;
+        currentBattleState = BattleState.PlayerAction;
         dialogBox.EnableActionSelector(true);
         StartCoroutine(dialogBox.TypeDialog("Choose an action!"));
     }
 
+    // Opens Menu for player move selection.
     public void PlayerMove()
     {
-        state = BattleState.PlayerMove;
+        currentBattleState = BattleState.PlayerMove;
         dialogBox.EnableDialogText(false);
         dialogBox.EnableActionSelector(false);
         dialogBox.EnableMoveSelector(true);
     }
 
+    // This Method performs the selected player move in the battle.
     IEnumerator PerformPlayerMove()
     {
-        state = BattleState.Busy;
+        currentBattleState = BattleState.Busy;
         var move = playerUnit.Pokemon.Moves[currentMove];
         yield return dialogBox.TypeDialog($"{playerUnit.Pokemon.Base.Name} used {move.Base.Name}");
 
@@ -81,9 +93,10 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
+    // This Method performs a random enemy move in the battle.
     IEnumerator EnemyMove()
     {
-        state = BattleState.EnemyMove;
+        currentBattleState = BattleState.EnemyMove;
         var move = enemyUnit.Pokemon.GetRandomMove();
         yield return dialogBox.TypeDialog($"{enemyUnit.Pokemon.Base.Name} used {move.Base.Name}");
 
@@ -110,6 +123,7 @@ public class BattleSystem : MonoBehaviour
 
     }
 
+    // Method to display specific damage details after a move has been performed.
     public IEnumerator ShowDamagDetails(DamageDetails damageDetails)
     {
         if (damageDetails.Critical > 1f)
@@ -121,21 +135,21 @@ public class BattleSystem : MonoBehaviour
 
     }
 
-
-
+    // According to the current Battle State, this method captures player input during the battle.
     public void HandleUpdate()
     {
-        if(state == BattleState.PlayerAction)
+        if(currentBattleState == BattleState.PlayerAction)
         {
             HandleActionSelection();
         } 
-        else if(state == BattleState.PlayerMove)
+        else if(currentBattleState == BattleState.PlayerMove)
         {
             HandleMoveSelection();
         }
         
     }
 
+    // Method to capture Player Action Input.
     void HandleActionSelection()
     {
         if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -168,6 +182,7 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
+    // Method to capture Player Move Input.
     void HandleMoveSelection()
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))

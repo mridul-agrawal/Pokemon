@@ -564,8 +564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f362e881dcda60347ad13d0f75a131bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameText: {fileID: 1521663257}
-  LevelText: {fileID: 1922655542}
+  nameText: {fileID: 1521663257}
+  levelText: {fileID: 1922655542}
   hpBar: {fileID: 1441111874}
 --- !u!1 &179464905
 GameObject:
@@ -9430,8 +9430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619a09ff42cbcce4bb156ef834434578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lettersPerSecond: 30
-  dialogText: {fileID: 2039204167}
   actionSelector: {fileID: 1530187777}
   moveSelector: {fileID: 594041716}
   moveDetails: {fileID: 1442268116}
@@ -9445,6 +9443,8 @@ MonoBehaviour:
   - {fileID: 1113599517}
   ppText: {fileID: 1165863135}
   typeText: {fileID: 1895517079}
+  lettersPerSecond: 30
+  dialogText: {fileID: 2039204167}
   highlightedColor: {r: 0.011347434, g: 0.25140652, b: 0.8018868, a: 1}
 --- !u!1 &1857123415
 GameObject:
@@ -9499,8 +9499,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f362e881dcda60347ad13d0f75a131bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameText: {fileID: 432630562}
-  LevelText: {fileID: 1299315215}
+  nameText: {fileID: 432630562}
+  levelText: {fileID: 1299315215}
   hpBar: {fileID: 946754653}
 --- !u!114 &1857123418
 MonoBehaviour:
