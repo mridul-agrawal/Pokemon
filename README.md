@@ -12,9 +12,11 @@ I have tried to recreate the original game design and feel in my project as a bi
 </p>
 <hr>
 
-### Design Patterns used for the development
+### Design Patterns & Programming Principles used
 * **Observer Pattern**
 * **State Machine**
+* **Singleton**
+* **Scriptable Objects**
 <hr>
 
 ### Demo Link
